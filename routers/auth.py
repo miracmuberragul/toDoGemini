@@ -8,8 +8,8 @@ from sqlalchemy.orm import Session
 from starlette import status
 
 
-from database import SessionLocal
-from models import Users
+from ..database import SessionLocal#aynı directoryde olmadıkları için 2 nokta
+from ..models import Users
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from jose import jwt, JWTError
@@ -20,7 +20,7 @@ router = APIRouter(
     tags=["auth"],#swaggerda ayrı olarak görmemizi sağladı
 )
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="app/templates")
 SECRET_KEY = "a2jll2xpi9zrn7nvey5wd8d6snacim09"
 ALGORITHM = "HS256"
 
